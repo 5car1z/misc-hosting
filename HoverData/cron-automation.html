@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://hoverdata.com/blog/cron-automation-in-linux-unix-systems/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Cron Automation in Linux &amp; Unix Systems | Hover Data – Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/reset.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/defaults.css" type="text/css" media="screen, projection">
+<!--[if lt IE 8]><link rel="stylesheet" href="http://hoverdata.com/blog/wp-content/themes/SeoSpot/lib/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+
+<link rel="stylesheet" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/style.css" type="text/css" media="screen, projection">
+
+<style type="text/css"></style><link rel="alternate" type="application/rss+xml" title="Hover Data - Blog » Cron Automation in Linux &amp; Unix Systems Comments Feed" href="http://hoverdata.com/blog/cron-automation-in-linux-unix-systems/feed/">
+<link rel="stylesheet" id="open-sans-css" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-css" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/monaco.css" type="text/css" media="all">
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/jquery.js"></script>
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.6.10","is_admin":"0","ajaxurl":"http:\/\/hoverdata.com\/blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/crayon.min.js"></script>
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/superfish.js"></script>
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/jquery.mobilemenu.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hoverdata.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hoverdata.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Creating &amp; Copying SSH Keys For Access With Linux Systems" href="http://hoverdata.com/blog/creating-copying-ssh-keys-for-access-with-linux-systems/">
+<link rel="next" title="Installing &amp; Configuring Logwatch On Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux" href="http://hoverdata.com/blog/installing-configuring-logwatch-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/">
+
+<link rel="canonical" href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/Cron Automation in Linux & Unix Systems _ Hover Data – Blog.html">
+<link rel="shortlink" href="http://hoverdata.com/blog/?p=174">
+<link rel="alternate" type="application/rss+xml" title="Hover Data - Blog RSS Feed" href="http://hoverdata.com/blog/feed/">
+<link rel="pingback" href="http://hoverdata.com/blog/xmlrpc.php">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+
+<style>#cVim-link-container, .cVim-link-hint, #cVim-command-bar, #cVim-command-bar-mode, #cVim-command-bar-input, #cVim-command-bar-search-results, .cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right, #cVim-hud, #cVim-status-bar {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-link-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  z-index: 2147483647;
+}
+
+.cVim-link-hint {
+  color: #302505 !important;
+  background-color: #ffd76e !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  font-size: 8pt !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: 1px solid #ad810c;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.25) !important;
+  position: absolute !important;
+}
+
+.cVim-link-hint_match {
+  color: #777;
+  text-transform: uppercase !important;
+}
+
+#cVim-command-bar {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  display: none;
+  box-sizing: content-box !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  left: 0 !important;
+  width: 100% !important;
+  height: 20px !important;
+}
+
+#cVim-command-bar-mode {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box !important;
+  padding-left: 2px !important;
+  height: 100% !important;
+  width: 10px !important;
+  padding-top: 2px !important;
+  color: #888 !important;
+}
+
+#cVim-command-bar-input {
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  height: 100% !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: calc(100% - 10px) !important;
+  position: absolute !important;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100% !important;
+  overflow: hidden;
+  z-index: 2147483647 !important;
+  left: 0;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  background-color: #1c1c1c;
+}
+
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right {
+  text-overflow: ellipsis;
+  padding: 1px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cVim-completion-item:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.cVim-completion-item {
+  width: 100%; left: 0;
+  color: #bcbcbc;
+}
+
+.cVim-completion-item .cVim-left {
+  color: #fff;
+  width: 37%;
+}
+
+.cVim-completion-item .cVim-right {
+  font-style: italic;
+  color: #888;
+  width: 57%;
+}
+
+#cVim-hud {
+  background-color: rgba(28,28,28,0.9);
+  position: fixed !important;
+  transition: right 0.2s ease-out;
+  z-index: 24724289;
+}
+
+#cVim-hud span {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #8f8f8f;
+  font-size: 10pt;
+}
+
+#cVim-frames-outline {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999999;
+  box-sizing: border-box;
+  border: 3px solid yellow;
+}
+</style></head>
+
+<body class="single single-post postid-174 single-format-standard logged-in admin-bar no-customize-support">
+
+<div id="container">
+
+    <div class="clearfix">
+    
+        <div id="top-social-profiles">
+                        <ul class="widget-container"><li class="social-profiles-widget">
+            <a href="http://twitter.com/" target="_blank"><img title="Twitter" alt="Twitter" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/twitter.png"></a><a href="http://facebook.com/" target="_blank"><img title="Facebook" alt="Facebook" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/facebook.png"></a><a href="https://plus.google.com/" target="_blank"><img title="Google Plus" alt="Google Plus" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/gplus.png"></a><a href="http://www.linkedin.com/" target="_blank"><img title="LinkedIn" alt="LinkedIn" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/linkedin.png"></a><a href="http://apadana-rayaneh.com/blog/?feed=rss2" target="_blank"><img title="RSS Feed" alt="RSS Feed" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/rss.png"></a><a href="mailto:your@email.com" target="_blank"><img title="Email" alt="Email" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/email.png"></a>            </li></ul>
+                    </div>
+        
+    </div>
+    
+    <div id="header">
+    
+        <div class="logo">
+         
+            <a href="http://hoverdata.com/blog"><img src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/logo1.jpg" alt="Hover Data – Blog" title="Hover Data – Blog"></a>
+         
+        </div><!-- .logo -->
+
+        <div class="header-right">
+            			        <div class="menu-primary-container">
+			<ul class="menus menu-primary sub-menu sf-js-enabled">
+                <li><a href="http://hoverdata.com/blog">Home</a></li>
+				<li class="page_item page-item-46"><a href="http://hoverdata.com/blog/bridgeclient/">Configure Bridge Client for Virtualization</a></li>
+<li class="page_item page-item-57"><a href="http://hoverdata.com/blog/ipalias/">Configure IPAlias (Assign Additional IP Address to Server)</a></li>
+			</ul>
+		</div><div class="menu-primary-responsive-container"><select class="menu-primary-responsive"><option value="#">Menu</option><option value="http://hoverdata.com/blog">–&nbsp;Home</option><option value="http://hoverdata.com/blog/bridgeclient/">–&nbsp;Configure Bridge Client for Virtualization</option><option value="http://hoverdata.com/blog/ipalias/">–&nbsp;Configure IPAlias (Assign Additional IP Address to Server)</option></select></div>
+                      <!--.primary menu--> 	
+                </div><!-- .header-right -->
+        
+    </div><!-- #header -->
+    
+            <div class="clearfix">
+            			        <div class="menu-secondary-container">
+			<ul class="menus menu-secondary sub-menu sf-js-enabled">
+					<li class="cat-item cat-item-3"><a href="http://hoverdata.com/blog/category/linux/" title="Everything should a user know about Linux would find here.">Linux</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://hoverdata.com/blog/category/officials/" title="We will publish our official news and promo here.">Officials</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://hoverdata.com/blog/category/seo/">Seo</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://hoverdata.com/blog/category/server-management/">Server Management</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://hoverdata.com/blog/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://hoverdata.com/blog/category/virtualization/" title="every tutorial and article about virtualization goes here.">Virtualization</a>
+</li>
+			</ul>
+		</div><div class="menu-secondary-responsive-container"><select class="menu-secondary-responsive"><option value="#">Navigation</option><option value="http://hoverdata.com/blog/category/linux/">–&nbsp;Linux</option><option value="http://hoverdata.com/blog/category/officials/">–&nbsp;Officials</option><option value="http://hoverdata.com/blog/category/seo/">–&nbsp;Seo</option><option value="http://hoverdata.com/blog/category/server-management/">–&nbsp;Server Management</option><option value="http://hoverdata.com/blog/category/uncategorized/">–&nbsp;Uncategorized</option><option value="http://hoverdata.com/blog/category/virtualization/">–&nbsp;Virtualization</option></select></div>
+                      <!--.secondary menu--> 	
+                </div>
+    
+    <div id="main">
+    
+            
+        <div id="content">
+            
+                    
+            
+    <div class="post-174 post type-post status-publish format-standard hentry category-linux category-server-management tag-automation tag-cron post-single clearfix" id="post-174">
+        
+        <div class="postmeta-primary">
+    
+            <span class="meta_date">March 30, 2015</span>
+           &nbsp; <span class="meta_categories"><a href="http://hoverdata.com/blog/category/linux/" rel="category tag">Linux</a>, <a href="http://hoverdata.com/blog/category/server-management/" rel="category tag">Server Management</a></span>
+    
+                 &nbsp; <span class="meta_comments"><a href="http://hoverdata.com/blog/cron-automation-in-linux-unix-systems/#respond" title="Comment on Cron Automation in Linux &amp; Unix Systems">No comments</a></span> &nbsp; <span class="meta_edit"><a class="post-edit-link" href="http://hoverdata.com/blog/wp-admin/post.php?post=174&action=edit">Edit This</a></span> 
+        </div>
+        
+        <h2 class="title">Cron Automation in Linux &amp; Unix Systems</h2>
+
+        <div class="entry clearfix">
+            
+                        
+            <p><a href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/logo-512x512-300x300.png"><img class="aligncenter size-full wp-image-179" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/logo-512x512-300x300.png" alt="logo-512x512-300x300" width="300" height="300"></a></p>
+<p><strong>Prerequisites</strong></p>
+<p>Cron is commonplace on most Linux systems so any typical open source OS will work for this post. Any type of hosting suffices too as long as the system is a Linux one.&nbsp;You can buy yourself server hosting from companies such as <a href="http://hoverdata.com/" target="_blank">Hoverdata</a>, who are specialists in providing reliable server hosting through affordable plans.</p>
+<p><strong>Introduction</strong></p>
+<p>The classic tool for setting up regularly run automatic processes or tasks in Linux/Unix systems is named c<em>ron,</em> and the tasks it automates are often informally referred to as c<em>ron-jobs</em>. &nbsp;The first advantage of using Cron to schedule processes is the fact that it comes as standard in the vast majority of Linux like distributions. Meaning you are more than likely to have it at your disposal, regardless of the Linux system type you’re using. In turn the documentation available for Cron is quite ubiquitous and will be the same for most scenarios.</p>
+<p>Historically it’s main strength from a server background is to automate recurrent admin and maintenance style duties. Administrators can allocate the exact timing a job is run and how frequently along with several other custom criteria.</p>
+<p>Continue on to see how cron is used to set up recurrent commands on a VPS which will&nbsp;help with regular admin activities.</p>
+<p><span id="more-174"></span></p>
+<p><strong>Step 1 — Understanding Cron Syntax</strong></p>
+<p>To&nbsp;add a cron-job we need to understand how to tell “cron” when and what to run.</p>
+<p>Fortunately once understood the syntax is quite easy to read and decipher.</p>
+<p>An example&nbsp;cron-job looks like this:</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8372c80093796243" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">0 11 * * 5 ping -t 15 www.google.co.uk</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8372c80093796243-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8372c80093796243-1"><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">11</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-cn">5</span><span class="crayon-h"> </span><span class="crayon-v">ping</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-h"> </span><span class="crayon-v">www</span><span class="crayon-e">.google</span><span class="crayon-e">.co</span><span class="crayon-e">.uk</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0007 seconds] -->
+<p>Each initial asterisk represents a certain time value. From left to right the value goes:</p>
+<ol>
+<li>Minute</li>
+<li>Hour</li>
+<li>Day (Month)</li>
+<li>Month</li>
+<li>Day (Week)</li>
+</ol>
+<p>So this first portion before the <strong>ping</strong> command dictates when and how often the task is run.</p>
+<p>The task you want to run is simply the amended command that always comes after, anything that you can run from the command line normally can be used as the task (within reason).</p>
+<p>In our above example I’ve provided at every week at eleven o’clock on Friday the ping command is run and targeted at www.google.co.uk</p>
+<hr>
+<p><strong>Step 2 — Adding A Cron-Job</strong></p>
+<p>Here’s how to input your command to cron once you have an idea of what you want it to be. I’ll use the exact same example from the previous step so it makes sense.</p>
+<p>To add it we use <em>crontab&nbsp;</em> which serves as the input file for cron.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8372c8a667944580" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">crontab -e</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8372c8a667944580-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8372c8a667944580-1"><span class="crayon-r">crontab</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">e</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>Run the previous command and select a text editor from the list of choices.</p>
+<p>Now add your previously created cron syntax as a new line at the bottom of the file, making sure not to include a # symbol at the start otherwise it will not be processed.</p>
+<div id="attachment_176" style="width: 399px" class="wp-caption aligncenter"><a href="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/334f2d670e7d65a4de50aedc9d63524e.png"><img class="wp-image-176 size-full" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/334f2d670e7d65a4de50aedc9d63524e.png" alt="Cron-job Example" width="389" height="44"></a><p class="wp-caption-text">Ping Cronjob</p></div>
+<p>&nbsp;</p>
+<hr>
+<p><strong>Step 3 — Displaying Cron-Jobs</strong></p>
+<p>To check what jobs are scheduled to run in your crontab you can use the -l parameter with crontab:</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8372c91649837778" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">crontab -l</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8372c91649837778-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8372c91649837778-1"><span class="crayon-r">crontab</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">l</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>You may want to remove the preamble comments that are generated upon first use of crontab from the contents, as this is displayed whenever you run the above command and is not vital information.</p>
+<hr>
+<p><strong>Step 4 – Different User’s Cron-Jobs</strong></p>
+<p>Whilst adding and running these jobs remember they are run under the user you added them to crontab as.</p>
+<p>Potential problems that can arise are access and permissions issues for the command you re trying to run as a job, when the user does not have the ability to implement them.</p>
+<p>if logged in as <strong>root&nbsp;</strong>the jobs you add will be for root and therefore have access to whatever you need.&nbsp;Also from root&nbsp;or a privileged user you can add jobs for other users with this command.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8372c96605380307" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">crontab -u username -e</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8372c96605380307-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8372c96605380307-1"><span class="crayon-r">crontab</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">u</span><span class="crayon-h"> </span><span class="crayon-v">username</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">e</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<blockquote><p>Replace “username” with the Linux user’s username you wish to add the job to.</p></blockquote>
+<hr>
+<p><strong>Step 5 — Cron Security&nbsp;</strong></p>
+<blockquote><p>Perform this section as <strong>root</strong> if you choose to complete it.</p></blockquote>
+<p>In the event that you don’t want a certain user to be allowed to add jobs to their crontab, you can add them to an allow<em>&nbsp;</em>file.</p>
+<p>If you plan to use this you must create an allow file in /etc/ in that the file is named cron.allow and has the specific users within it.</p>
+<p>Here is one way of going about doing this where username is the user you want to have access to cron scheduling.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8372c9a112163606" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">echo username &gt;&gt; /etc/cron.allow</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8372c9a112163606-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8372c9a112163606-1"><span class="crayon-r">echo</span><span class="crayon-h"> </span><span class="crayon-v">username</span><span class="crayon-h"> </span><span class="crayon-o">&gt;&gt;</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">etc</span><span class="crayon-o">/</span><span class="crayon-v">cron</span><span class="crayon-e">.allow</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>In the future simply add usernames to the file with a text editor or other means, separated by new lines after each other (as root again).</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8372c9e937886885" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">nano /etc/cron.allow</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8372c9e937886885-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8372c9e937886885-1"><span class="crayon-v">nano</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">etc</span><span class="crayon-o">/</span><span class="crayon-v">cron</span><span class="crayon-e">.allow</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<hr>
+<p><strong>Conclusion&nbsp;</strong></p>
+<p>Cron is invaluable to a wide variety of tasks that require constant implementation, and should not be overlooked by system admins when maintaining a server. Despite its age and relatively basic operation, the tool is still as useful as it was when first introduced. There are even more syntax commands you can make use of with cron if you want to learn them too.</p>
+<p>We hope this has proved useful and gets you started in using the potential of cron.</p>
+    
+        </div>
+        
+        <div class="postmeta-secondary"><span class="meta_tags"><a href="http://hoverdata.com/blog/tag/automation/" rel="tag">Automation</a>, <a href="http://hoverdata.com/blog/tag/cron/" rel="tag">Cron</a></span></div> 
+        
+    
+    </div><!-- Post ID 174 -->
+    
+    
+       
+        
+    								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://hoverdata.com/blog/cron-automation-in-linux-unix-systems/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://hoverdata.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="logged-in-as">Logged in as <a href="http://hoverdata.com/blog/wp-admin/profile.php">Scarlz</a>. <a href="http://hoverdata.com/blog/wp-login.php?action=logout&redirect_to=http%3A%2F%2Fhoverdata.com%2Fblog%2Fcron-automation-in-linux-unix-systems%2F&_wpnonce=325d8fefca" title="Log out of this account">Log out?</a></p>																			<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true"></textarea></p>						<p class="form-allowed-tags" id="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code class="" title="" data-url=""&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; &lt;pre class="" title="" data-url=""&gt; &lt;span class="" title="" data-url=""&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="174" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+											</form>
+							</div><!-- #respond -->
+			            
+                    
+        </div><!-- #content -->
+    
+        
+<div id="sidebar-primary">
+
+            <ul class="widget-container"><li class="comments-widget">
+         <h3 class="widgettitle">Recent Comments</h3>             <ul>
+                                        <li class="clearfix">
+                                                                <a href="http://hoverdata.com/blog/change-root-password-in-linux/#comment-2" title="Change Root Password in Linux"><img alt="" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/c2439842c3f0993664b12cd06c91a47d" class="avatar comments-widget-avatar alignleft avatar-32 photo" height="32" width="32"></a> 
+                                    <div class="comments-widget-entry">
+                                                                                <a href="http://hoverdata.com/blog/change-root-password-in-linux/#comment-2" class="comments-widget-author">Rebert Sanchez</a>: Hello
+
+It was a really helpful tutorial keep goi 
+                                            <a href="http://hoverdata.com/blog/change-root-password-in-linux/#comment-2" class="comments-widget-more">»</a>                                    </div>                        </li>
+                                </ul>
+        </li></ul>
+             <ul class="widget-container"><li class="infobox-widget">
+            <h3 class="widgettitle">What is purpose of the blog?</h3>            <ul>
+        	   <li class="infobox-widget-description">
+                We are going to update the blog with most stuff which is the most related to VPS and Dedicated Server and How to manage it. We recently run this blog as a knowledge-base therefore we have not covered most tutorials,Therefore we glad to receive what you need to add the blog.
+               </li>
+            </ul>
+        </li></ul>
+            
+</div><!-- #sidebar-primary -->        
+                
+    </div><!-- #main -->
+    
+    
+    <div id="footer-widgets" class="clearfix">
+                <div class="footer-widget-box">
+                    </div>
+        
+        <div class="footer-widget-box">
+                    </div>
+        
+        <div class="footer-widget-box footer-widget-box-last">
+                    </div>
+        
+    </div>
+
+    <div id="footer">
+    
+        <div id="copyrights">
+             © 2015  <a href="http://hoverdata.com/blog/">Hover Data – Blog</a> 
+        </div>
+        
+                
+        <div id="credits">Powered by <a href="http://wordpress.org/"><strong>WordPress</strong></a>  </div><!-- #credits -->
+        
+    </div><!-- #footer -->
+    
+</div><!-- #container -->
+
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/admin-bar.min.js"></script>
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/hoverIntent.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.noConflict();
+jQuery(function(){ 
+	jQuery('ul.menu-primary').superfish({ 
+	animation: {opacity:'show'},
+autoArrows:  true,
+                dropShadows: false, 
+                speed: 200,
+                delay: 800
+                });
+            });
+jQuery('.menu-primary-container').mobileMenu({
+                defaultText: 'Menu',
+                className: 'menu-primary-responsive',
+                containerClass: 'menu-primary-responsive-container',
+                subMenuDash: '&ndash;'
+            });
+
+jQuery(function(){ 
+	jQuery('ul.menu-secondary').superfish({ 
+	animation: {opacity:'show'},
+autoArrows:  true,
+                dropShadows: false, 
+                speed: 200,
+                delay: 800
+                });
+            });
+jQuery('.menu-secondary-container').mobileMenu({
+                defaultText: 'Navigation',
+                className: 'menu-secondary-responsive',
+                containerClass: 'menu-secondary-responsive-container',
+                subMenuDash: '&ndash;'
+            });
+
+/* ]]> */
+</script>
+
+</body><iframe src="./Cron Automation in Linux & Unix Systems _ Hover Data – Blog_files/cmdline_frame.html" id="cVim-command-frame"></iframe><div id="cVim-status-bar" style="bottom: 0px;"></div></html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!-- saved from url=(0110)http://hoverdata.com/blog/installing-configuring-logwatch-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Installing &amp; Configuring Logwatch On Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux | Hover Data – Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/reset.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/defaults.css" type="text/css" media="screen, projection">
+<!--[if lt IE 8]><link rel="stylesheet" href="http://hoverdata.com/blog/wp-content/themes/SeoSpot/lib/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+
+<style type="text/css"></style><link rel="stylesheet" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/style.css" type="text/css" media="screen, projection">
+
+<link rel="alternate" type="application/rss+xml" title="Hover Data - Blog » Installing &amp; Configuring Logwatch On Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux Comments Feed" href="http://hoverdata.com/blog/installing-configuring-logwatch-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/feed/">
+<link rel="stylesheet" id="open-sans-css" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-css" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/monaco.css" type="text/css" media="all">
+<script type="text/javascript" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/jquery.js"></script>
+<script type="text/javascript" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.6.10","is_admin":"0","ajaxurl":"http:\/\/hoverdata.com\/blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/crayon.min.js"></script>
+<script type="text/javascript" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/superfish.js"></script>
+<script type="text/javascript" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/jquery.mobilemenu.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hoverdata.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hoverdata.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Cron Automation in Linux &amp; Unix Systems" href="http://hoverdata.com/blog/cron-automation-in-linux-unix-systems/">
+<link rel="next" title="Shell Documentation In Linux &amp; Unix Systems" href="http://hoverdata.com/blog/shell-documentation-in-linux-unix-systems/">
+
+<link rel="canonical" href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog.html">
+<link rel="shortlink" href="http://hoverdata.com/blog/?p=183">
+<link rel="alternate" type="application/rss+xml" title="Hover Data - Blog RSS Feed" href="http://hoverdata.com/blog/feed/">
+<link rel="pingback" href="http://hoverdata.com/blog/xmlrpc.php">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+
+<style>#cVim-link-container, .cVim-link-hint, #cVim-command-bar, #cVim-command-bar-mode, #cVim-command-bar-input, #cVim-command-bar-search-results, .cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right, #cVim-hud, #cVim-status-bar {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-link-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  z-index: 2147483647;
+}
+
+.cVim-link-hint {
+  color: #302505 !important;
+  background-color: #ffd76e !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  font-size: 8pt !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: 1px solid #ad810c;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.25) !important;
+  position: absolute !important;
+}
+
+.cVim-link-hint_match {
+  color: #777;
+  text-transform: uppercase !important;
+}
+
+#cVim-command-bar {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  display: none;
+  box-sizing: content-box !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  left: 0 !important;
+  width: 100% !important;
+  height: 20px !important;
+}
+
+#cVim-command-bar-mode {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box !important;
+  padding-left: 2px !important;
+  height: 100% !important;
+  width: 10px !important;
+  padding-top: 2px !important;
+  color: #888 !important;
+}
+
+#cVim-command-bar-input {
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  height: 100% !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: calc(100% - 10px) !important;
+  position: absolute !important;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100% !important;
+  overflow: hidden;
+  z-index: 2147483647 !important;
+  left: 0;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  background-color: #1c1c1c;
+}
+
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right {
+  text-overflow: ellipsis;
+  padding: 1px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cVim-completion-item:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.cVim-completion-item {
+  width: 100%; left: 0;
+  color: #bcbcbc;
+}
+
+.cVim-completion-item .cVim-left {
+  color: #fff;
+  width: 37%;
+}
+
+.cVim-completion-item .cVim-right {
+  font-style: italic;
+  color: #888;
+  width: 57%;
+}
+
+#cVim-hud {
+  background-color: rgba(28,28,28,0.9);
+  position: fixed !important;
+  transition: right 0.2s ease-out;
+  z-index: 24724289;
+}
+
+#cVim-hud span {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #8f8f8f;
+  font-size: 10pt;
+}
+
+#cVim-frames-outline {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999999;
+  box-sizing: border-box;
+  border: 3px solid yellow;
+}
+</style></head>
+
+<body class="single single-post postid-183 single-format-standard logged-in admin-bar no-customize-support">
+
+<div id="container">
+
+    <div class="clearfix">
+    
+        <div id="top-social-profiles">
+                        <ul class="widget-container"><li class="social-profiles-widget">
+            <a href="http://twitter.com/" target="_blank"><img title="Twitter" alt="Twitter" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/twitter.png"></a><a href="http://facebook.com/" target="_blank"><img title="Facebook" alt="Facebook" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/facebook.png"></a><a href="https://plus.google.com/" target="_blank"><img title="Google Plus" alt="Google Plus" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/gplus.png"></a><a href="http://www.linkedin.com/" target="_blank"><img title="LinkedIn" alt="LinkedIn" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/linkedin.png"></a><a href="http://apadana-rayaneh.com/blog/?feed=rss2" target="_blank"><img title="RSS Feed" alt="RSS Feed" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/rss.png"></a><a href="mailto:your@email.com" target="_blank"><img title="Email" alt="Email" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/email.png"></a>            </li></ul>
+                    </div>
+        
+    </div>
+    
+    <div id="header">
+    
+        <div class="logo">
+         
+            <a href="http://hoverdata.com/blog"><img src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/logo1.jpg" alt="Hover Data – Blog" title="Hover Data – Blog"></a>
+         
+        </div><!-- .logo -->
+
+        <div class="header-right">
+            			        <div class="menu-primary-container">
+			<ul class="menus menu-primary">
+                <li><a href="http://hoverdata.com/blog">Home</a></li>
+				<li class="page_item page-item-46"><a href="http://hoverdata.com/blog/bridgeclient/">Configure Bridge Client for Virtualization</a></li>
+<li class="page_item page-item-57"><a href="http://hoverdata.com/blog/ipalias/">Configure IPAlias (Assign Additional IP Address to Server)</a></li>
+			</ul>
+		</div>
+                      <!--.primary menu--> 	
+                </div><!-- .header-right -->
+        
+    </div><!-- #header -->
+    
+            <div class="clearfix">
+            			        <div class="menu-secondary-container">
+			<ul class="menus menu-secondary">
+					<li class="cat-item cat-item-3"><a href="http://hoverdata.com/blog/category/linux/" title="Everything should a user know about Linux would find here.">Linux</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://hoverdata.com/blog/category/officials/" title="We will publish our official news and promo here.">Officials</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://hoverdata.com/blog/category/seo/">Seo</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://hoverdata.com/blog/category/server-management/">Server Management</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://hoverdata.com/blog/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://hoverdata.com/blog/category/virtualization/" title="every tutorial and article about virtualization goes here.">Virtualization</a>
+</li>
+			</ul>
+		</div>
+                      <!--.secondary menu--> 	
+                </div>
+    
+    <div id="main">
+    
+            
+        <div id="content">
+            
+                    
+            
+    <div class="post-183 post type-post status-publish format-standard hentry category-linux category-server-management tag-arch tag-centos tag-debian tag-fedora tag-logwatch tag-postfix tag-rhel tag-ubuntu post-single clearfix" id="post-183">
+        
+        <div class="postmeta-primary">
+    
+            <span class="meta_date">March 31, 2015</span>
+           &nbsp; <span class="meta_categories"><a href="http://hoverdata.com/blog/category/linux/" rel="category tag">Linux</a>, <a href="http://hoverdata.com/blog/category/server-management/" rel="category tag">Server Management</a></span>
+    
+                 &nbsp; <span class="meta_comments"><a href="http://hoverdata.com/blog/installing-configuring-logwatch-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/#respond" title="Comment on Installing &amp; Configuring Logwatch On Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux">No comments</a></span> &nbsp; <span class="meta_edit"><a class="post-edit-link" href="http://hoverdata.com/blog/wp-admin/post.php?post=183&action=edit">Edit This</a></span> 
+        </div>
+        
+        <h2 class="title">Installing &amp; Configuring Logwatch On Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux</h2>
+
+        <div class="entry clearfix">
+            
+                        
+            <p><a href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/log_.log_file_file_format_document_extension_format-512.png"><img class="aligncenter  wp-image-205" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/log_.log_file_file_format_document_extension_format-512.png" alt="log_.log_file_file_format_document_extension_format-512" width="258" height="258"></a></p>
+<p><strong>Prerequisites</strong></p>
+<p>All you require for this guide in particular is a VPS or server running one of the Linux operating systems included in the title. It is possible to complete it with a sudo user although the context of this post is done using a root account. So we are&nbsp;presuming you have some form of root access for this. If you are in need of hosting&nbsp;<a href="http://hoverdata.com/" target="_blank">Hoverdata</a>&nbsp;provide several packages with afforable payment plans for a shared host, VPS, or dedicated server.</p>
+<p><strong>Introduction</strong></p>
+<p>Logwatch is one of many monitoring and reporting programs to be found in the Linux world. It has an emphasis on being customisable to the user’s needs whilst still being adept at analysing then summarizing log files.&nbsp;In this post we cover setting up the basic cycle of daily log summaries in the form of external emails to a chosen address. The program reports back on all running services by default but can be altered to only show set services if desired.</p>
+<p>Read on to see how to get Logwatch up and running.</p>
+<p><span id="more-183"></span></p>
+<div><strong>Step 1 — Install Logwatch</strong></div>
+<p>Download Logwatch through your Linux distribution’s package manager to begin the installation and configuration.</p>
+<p><strong>Debian/Ubuntu</strong></p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef1796115783705" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">apt-get install logwatch</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef1796115783705-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef1796115783705-1"><span class="crayon-v">apt</span><span class="crayon-o">-</span><span class="crayon-r">get</span><span class="crayon-h"> </span><span class="crayon-e">install </span><span class="crayon-v">logwatch</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<hr>
+<p><b>Fedora, CentOS , RHEL</b></p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef179e294643873" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">yum install logwatch</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top" data-line="crayon-5560ad8ef179e294643873-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top" id="crayon-5560ad8ef179e294643873-1"><span class="crayon-e">yum </span><span class="crayon-e">install </span><span class="crayon-v">logwatch</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<hr>
+<p><strong>Arch Linux</strong></p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17a2631513011" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">pacman -S logwatch</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17a2631513011-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17a2631513011-1"><span class="crayon-v">pacman</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">S</span><span class="crayon-h"> </span><span class="crayon-v">logwatch</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p><strong>Step 2 — Postfix Configuration</strong></p>
+<p>Postfix is a Mail Transfer Agent (or MTA) that Logwatch depends upon for sending its mails whether internally or externally. It comes as part of the Logwatch dependencies when you download it. In this case we only have to complete two stages of the postfix configure process.</p>
+<p><em>Internet Site</em></p>
+<p>Select the Internet Site for our VPS/server on the first screen.</p>
+<div id="attachment_184" style="width: 719px" class="wp-caption aligncenter"><a href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/1413a8243a37a2a5ca69ae89d6b948b9.png"><img class="wp-image-184 size-full" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/1413a8243a37a2a5ca69ae89d6b948b9.png" alt="1413a8243a37a2a5ca69ae89d6b948b9" width="709" height="522"></a><p class="wp-caption-text">Config Type</p></div>
+<p>&nbsp;</p>
+<p><i>Domain Name</i></p>
+<p>This should be a domain name for the VPS/server you are installing on that has a valid&nbsp;DNS record. For our purposes however for use with Logstash it is not imperative that you input a domain name. The format should also be of a Fully Qualified Domain Name (except you don’t need the final period).</p>
+<p>if you are unsure what to enter for this or don’t have a valid domain name, you can just use the machine’s hostname like so:<em> hostname.com&nbsp;</em></p>
+<div id="attachment_185" style="width: 1915px" class="wp-caption aligncenter"><a href="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/ce44de6238611ec25ec8fe2b416a6e23.png"><img class="wp-image-185 size-full" src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/ce44de6238611ec25ec8fe2b416a6e23.png" alt="ce44de6238611ec25ec8fe2b416a6e23" width="1905" height="408"></a><p class="wp-caption-text">FQDN</p></div>
+<p>These two sections are usually enough for Logwatch to work with postfix without error, although this could depend upon your overall postfix setup. If using it elsewhere.</p>
+<hr>
+<p><strong>Step 3 — Logwatch.conf</strong></p>
+<p>As with many Linux programs the core settings of Logwatch are placed in one single config file located at:</p>
+<p><code> /usr/share/logwatch/default.conf/logwatch.conf</code></p>
+<p>Using any text editor open the file for writing and take a look at the contents. I’ll be using vim in the example.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17a8098918996" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">vim /usr/share/logwatch/default.conf/logwatch.conf</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17a8098918996-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17a8098918996-1"><span class="crayon-r">vim</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">usr</span><span class="crayon-o">/</span><span class="crayon-v">share</span><span class="crayon-o">/</span><span class="crayon-v">logwatch</span><span class="crayon-o">/</span><span class="crayon-st">default</span><span class="crayon-e">.conf</span><span class="crayon-o">/</span><span class="crayon-v">logwatch</span><span class="crayon-e">.conf</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p>There are&nbsp;a number of different entries you can set in here, only a select few are completely necessary though.</p>
+<ol>
+<li>Output</li>
+<li>Format</li>
+<li>MailTo</li>
+<li>MailFrom</li>
+<li>Detail</li>
+</ol>
+<p>Let’s go through these one by one in the next steps.</p>
+<hr>
+<p><strong>Step 4 — Output Directive</strong></p>
+<p>As we are setting up Logwatch to send us updates and reports through email we need to set this option to “mail” and not “stdout” (standard output) so reports are not fed to the command line and instead emailed.</p>
+<p>Set it like this:</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17ad918500447" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">Output = mail</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17ad918500447-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17ad918500447-1"><span class="crayon-v">Output</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">mail</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p><strong>Step 5 — Format&nbsp;Directive</strong></p>
+<p>This option lets us choose what format we want to receive the data in. It can be either HTML or plain-text. Choose “html” or leave it as “text” if you prefer text formatting.</p>
+<p>I’ll be changing it to HTML in this example.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17b1913134976" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">Format = html</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17b1913134976-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17b1913134976-1"><span class="crayon-v">Format</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">html</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p><strong>Step 6 — MailTo&nbsp;Directive</strong></p>
+<p>This one you’ll set to the address you want the email reports to go to once they are requested by yourself or any scripts.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17b5759307812" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">MailTo = your-email@mail-domain.com</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17b5759307812-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17b5759307812-1"><span class="crayon-v">MailTo</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">your</span><span class="crayon-o">-</span><span class="crayon-v">email</span><span class="crayon-sy">@</span><span class="crayon-v">mail</span><span class="crayon-o">-</span><span class="crayon-v">domain</span><span class="crayon-e">.com</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<hr>
+<p><strong>Step 7 — MailFrom&nbsp;Directive</strong></p>
+<p>Now with this directive you can set the identity of who the email reports originate from. It can be a local Linux system account or an email address once again.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17b8945465862" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">MailFrom = your-email@mail-domain.com</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17b8945465862-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17b8945465862-1"><span class="crayon-v">MailFrom</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">your</span><span class="crayon-o">-</span><span class="crayon-v">email</span><span class="crayon-sy">@</span><span class="crayon-v">mail</span><span class="crayon-o">-</span><span class="crayon-v">domain</span><span class="crayon-e">.com</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<hr>
+<p><strong>Step 8 –</strong>&nbsp;<strong>Detail Directive</strong></p>
+<p>You can explicitly state what level of detail you want the email reports to take.</p>
+<p>With either Low, Med, or High assigned to the directive.</p>
+<p>For my example I’m setting it to Medium.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17bc483110326" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">Detail = Med</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17bc483110326-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17bc483110326-1"><span class="crayon-v">Detail</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">Med</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p><strong>Step 9 — Running &amp; Testing Logwatch</strong></p>
+<p>After closing and saving the config file all the changes will be made and we can start making sure everything works properly.</p>
+<p>The easiest way to test Logwatch is to run it with no parameters on the command line and then check your specified email account.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad8ef17c0631897257" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">logwatch</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad8ef17c0631897257-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad8ef17c0631897257-1"><span class="crayon-v">logwatch</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<blockquote><p><strong>Important:</strong> Check the email account’s spam/junk folder for the report email(s) before assuming something is not configured properly.</p></blockquote>
+<p>If even after checking your inbox there are no emails to be found then re-open the config file for Logwatch and double check all directives for errors or misplaced characters. Consult your firewall if you have one to ensure it is not blocking any sending/receiving of the emails by Postfix.</p>
+<hr>
+<p><strong>Conclusion</strong></p>
+<p>Everything is now set to send daily log reports to the email address. You can also set up a cronjob to run logwatch every now and then if you prefer not to make use of the config file directives, but make sure to disable the daily send directive in Logwatch first.</p>
+<p>This other post covers how to set up cron-jobs if you need it:&nbsp;<a title="Cron Automation in Linux &amp; Unix Systems" href="http://hoverdata.com/blog/cron-automation-in-linux-unix-systems/" target="_blank">Cron Automation in Linux &amp; Unix Systems</a></p>
+<p>Any problems or troubleshooting should include your postfix configuration, as problems there can impact on Logwatch not sending/receiving properly. Especially if you have setup Postfix for other uses&nbsp;elsewhere.</p>
+<p>Thanks for reading and ask any questions in the comments as usual.</p>
+</div></div></div></div></div></body><iframe src="./Installing & Configuring Logwatch On Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/cmdline_frame.html" id="cVim-command-frame"></iframe><div id="cVim-status-bar" style="bottom: 0px;"></div></html>

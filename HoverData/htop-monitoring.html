@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)http://hoverdata.com/blog/monitoring-system-processes-with-htop-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Monitoring System Processes with Htop on Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux | Hover Data – Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/reset.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/defaults.css" type="text/css" media="screen, projection">
+<!--[if lt IE 8]><link rel="stylesheet" href="http://hoverdata.com/blog/wp-content/themes/SeoSpot/lib/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+
+<style type="text/css"></style><link rel="stylesheet" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/style.css" type="text/css" media="screen, projection">
+
+<link rel="alternate" type="application/rss+xml" title="Hover Data - Blog » Monitoring System Processes with Htop on Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux Comments Feed" href="http://hoverdata.com/blog/monitoring-system-processes-with-htop-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/feed/">
+<link rel="stylesheet" id="open-sans-css" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-css" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/monaco.css" type="text/css" media="all">
+<script type="text/javascript" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/jquery.js"></script>
+<script type="text/javascript" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.6.10","is_admin":"0","ajaxurl":"http:\/\/hoverdata.com\/blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/crayon.min.js"></script>
+<script type="text/javascript" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/superfish.js"></script>
+<script type="text/javascript" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/jquery.mobilemenu.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hoverdata.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hoverdata.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Installing &amp; Using Aptitude CLI Front-end on Ubuntu/Debian" href="http://hoverdata.com/blog/installing-using-aptitude-cli-front-end-on-ubuntudebian/">
+<link rel="next" title="Adding &amp; Creating Swap Files in Ubuntu/Debian" href="http://hoverdata.com/blog/adding-creating-swap-files-in-ubuntudebian/">
+
+<link rel="canonical" href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog.html">
+<link rel="shortlink" href="http://hoverdata.com/blog/?p=79">
+<link rel="alternate" type="application/rss+xml" title="Hover Data - Blog RSS Feed" href="http://hoverdata.com/blog/feed/">
+<link rel="pingback" href="http://hoverdata.com/blog/xmlrpc.php">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+
+<style>#cVim-link-container, .cVim-link-hint, #cVim-command-bar, #cVim-command-bar-mode, #cVim-command-bar-input, #cVim-command-bar-search-results, .cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right, #cVim-hud, #cVim-status-bar {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-link-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  z-index: 2147483647;
+}
+
+.cVim-link-hint {
+  color: #302505 !important;
+  background-color: #ffd76e !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  font-size: 8pt !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: 1px solid #ad810c;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.25) !important;
+  position: absolute !important;
+}
+
+.cVim-link-hint_match {
+  color: #777;
+  text-transform: uppercase !important;
+}
+
+#cVim-command-bar {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  display: none;
+  box-sizing: content-box !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  left: 0 !important;
+  width: 100% !important;
+  height: 20px !important;
+}
+
+#cVim-command-bar-mode {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box !important;
+  padding-left: 2px !important;
+  height: 100% !important;
+  width: 10px !important;
+  padding-top: 2px !important;
+  color: #888 !important;
+}
+
+#cVim-command-bar-input {
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  height: 100% !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: calc(100% - 10px) !important;
+  position: absolute !important;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100% !important;
+  overflow: hidden;
+  z-index: 2147483647 !important;
+  left: 0;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  background-color: #1c1c1c;
+}
+
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right {
+  text-overflow: ellipsis;
+  padding: 1px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cVim-completion-item:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.cVim-completion-item {
+  width: 100%; left: 0;
+  color: #bcbcbc;
+}
+
+.cVim-completion-item .cVim-left {
+  color: #fff;
+  width: 37%;
+}
+
+.cVim-completion-item .cVim-right {
+  font-style: italic;
+  color: #888;
+  width: 57%;
+}
+
+#cVim-hud {
+  background-color: rgba(28,28,28,0.9);
+  position: fixed !important;
+  transition: right 0.2s ease-out;
+  z-index: 24724289;
+}
+
+#cVim-hud span {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #8f8f8f;
+  font-size: 10pt;
+}
+
+#cVim-frames-outline {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999999;
+  box-sizing: border-box;
+  border: 3px solid yellow;
+}
+</style></head>
+
+<body class="single single-post postid-79 single-format-standard logged-in admin-bar no-customize-support">
+
+<div id="container">
+
+    <div class="clearfix">
+    
+        <div id="top-social-profiles">
+                        <ul class="widget-container"><li class="social-profiles-widget">
+            <a href="http://twitter.com/" target="_blank"><img title="Twitter" alt="Twitter" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/twitter.png"></a><a href="http://facebook.com/" target="_blank"><img title="Facebook" alt="Facebook" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/facebook.png"></a><a href="https://plus.google.com/" target="_blank"><img title="Google Plus" alt="Google Plus" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/gplus.png"></a><a href="http://www.linkedin.com/" target="_blank"><img title="LinkedIn" alt="LinkedIn" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/linkedin.png"></a><a href="http://apadana-rayaneh.com/blog/?feed=rss2" target="_blank"><img title="RSS Feed" alt="RSS Feed" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/rss.png"></a><a href="mailto:your@email.com" target="_blank"><img title="Email" alt="Email" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/email.png"></a>            </li></ul>
+                    </div>
+        
+    </div>
+    
+    <div id="header">
+    
+        <div class="logo">
+         
+            <a href="http://hoverdata.com/blog"><img src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/logo1.jpg" alt="Hover Data – Blog" title="Hover Data – Blog"></a>
+         
+        </div><!-- .logo -->
+
+        <div class="header-right">
+            			        <div class="menu-primary-container">
+			<ul class="menus menu-primary">
+                <li><a href="http://hoverdata.com/blog">Home</a></li>
+				<li class="page_item page-item-46"><a href="http://hoverdata.com/blog/bridgeclient/">Configure Bridge Client for Virtualization</a></li>
+<li class="page_item page-item-57"><a href="http://hoverdata.com/blog/ipalias/">Configure IPAlias (Assign Additional IP Address to Server)</a></li>
+			</ul>
+		</div>
+                      <!--.primary menu--> 	
+                </div><!-- .header-right -->
+        
+    </div><!-- #header -->
+    
+            <div class="clearfix">
+            			        <div class="menu-secondary-container">
+			<ul class="menus menu-secondary">
+					<li class="cat-item cat-item-3"><a href="http://hoverdata.com/blog/category/linux/" title="Everything should a user know about Linux would find here.">Linux</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://hoverdata.com/blog/category/officials/" title="We will publish our official news and promo here.">Officials</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://hoverdata.com/blog/category/seo/">Seo</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://hoverdata.com/blog/category/server-management/">Server Management</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://hoverdata.com/blog/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://hoverdata.com/blog/category/virtualization/" title="every tutorial and article about virtualization goes here.">Virtualization</a>
+</li>
+			</ul>
+		</div>
+                      <!--.secondary menu--> 	
+                </div>
+    
+    <div id="main">
+    
+            
+        <div id="content">
+            
+                    
+            
+    <div class="post-79 post type-post status-publish format-standard hentry category-linux category-server-management tag-arch tag-centos tag-debian tag-fedora tag-monitoring tag-rhel tag-ubuntu post-single clearfix" id="post-79">
+        
+        <div class="postmeta-primary">
+    
+            <span class="meta_date">March 25, 2015</span>
+           &nbsp; <span class="meta_categories"><a href="http://hoverdata.com/blog/category/linux/" rel="category tag">Linux</a>, <a href="http://hoverdata.com/blog/category/server-management/" rel="category tag">Server Management</a></span>
+    
+                 &nbsp; <span class="meta_comments"><a href="http://hoverdata.com/blog/monitoring-system-processes-with-htop-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/#respond" title="Comment on Monitoring System Processes with Htop on Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux">No comments</a></span> &nbsp; <span class="meta_edit"><a class="post-edit-link" href="http://hoverdata.com/blog/wp-admin/post.php?post=79&action=edit">Edit This</a></span> 
+        </div>
+        
+        <h2 class="title">Monitoring System Processes with Htop on Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux</h2>
+
+        <div class="entry clearfix">
+            
+                        
+            <p><a href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/pid-300x225.jpg"><img class="aligncenter size-full wp-image-114" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/pid-300x225.jpg" alt="pid-300x225" width="300" height="225"></a></p>
+<p><strong>Prerequisites</strong></p>
+<p>This guide is intended for &nbsp;any of the Linux operating systems listed in the title run on any client machine or VPS with SSH/VNC access. You can buy VPS server hosting if needed through&nbsp;<a href="http://hoverdata.com/" target="_blank">Hoverdata</a>, who look to provide high quality server hosting at affordable competitive prices.</p>
+<p><strong>Introduction&nbsp;</strong></p>
+<p>Htop is an incredibly useful built in CLI tool for monitoring system processes in real-time without bypassing any important sometimes overlooked details. It is a welcome tool for server admins and average users alike, and has great flexibility when it comes to customisation of the information it provides. When top (the built in linux/unix process monitor) isn’t enough htop provides the extra depth of detail needed. Installing the program is relatively straight forward and accessible to multiple popular (and unpopular) distributions of varying different kinds.&nbsp;Here’s how to install and use the program.</p>
+<p><span id="more-79"></span></p>
+<p><strong>Step 1 — Install Htop</strong></p>
+<p>To acquire the program follow one set of commands that appear next depending upon the Linux distribution you wanting&nbsp;to run htop on.</p>
+<p><strong>Debian/Ubuntu</strong></p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881d4875453111" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">sudo apt-get install htop</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad59881d4875453111-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad59881d4875453111-1"><span class="crayon-e">sudo </span><span class="crayon-v">apt</span><span class="crayon-o">-</span><span class="crayon-r">get</span><span class="crayon-h"> </span><span class="crayon-e">install </span><span class="crayon-v">htop</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<hr>
+<p>To find out what architecture your OS supports (32 bit/64 bit) you can use the command:</p>
+<p><code>uname -m</code></p>
+<p><b>Fedora, CentOS , RHEL – 32 bit&nbsp;</b></p>
+<p>i686/1386</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881dd580497828" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
+rpm -ihv rpmforge-release*.rf.i686.rpm</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top" data-line="crayon-5560ad59881dd580497828-1">1</div><div class="crayon-num crayon-marked-num crayon-bottom crayon-striped-num" data-line="crayon-5560ad59881dd580497828-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top" id="crayon-5560ad59881dd580497828-1"><span class="crayon-e">wget </span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-o">/</span><span class="crayon-v">pkgs</span><span class="crayon-e">.repoforge</span><span class="crayon-e">.org</span><span class="crayon-o">/</span><span class="crayon-v">rpmforge</span><span class="crayon-o">-</span><span class="crayon-v">release</span><span class="crayon-o">/</span><span class="crayon-v">rpmforge</span><span class="crayon-o">-</span><span class="crayon-v">release</span><span class="crayon-o">-</span><span class="crayon-cn">0.5.3</span><span class="crayon-o">-</span><span class="crayon-cn">1.el6.rf.i686.rpm</span></div><div class="crayon-line crayon-marked-line crayon-bottom crayon-striped-line" id="crayon-5560ad59881dd580497828-2"><span class="crayon-v">rpm</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-e">ihv </span><span class="crayon-v">rpmforge</span><span class="crayon-o">-</span><span class="crayon-v">release</span><span class="crayon-o">*</span><span class="crayon-e">.rf</span><span class="crayon-e">.i686</span><span class="crayon-e">.rpm</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0009 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881e1261466175" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">sudo yum install htop</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad59881e1261466175-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad59881e1261466175-1"><span class="crayon-e">sudo </span><span class="crayon-e">yum </span><span class="crayon-e">install </span><span class="crayon-v">htop</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p>To find out what architecture your OS supports (32 bit/64 bit) you can use the command:</p>
+<p><code>uname -m</code></p>
+<p><b>Fedora, CentOS, RHEL – 64 bit</b></p>
+<p>x86_64</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881e6426435132" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+rpm -ihv rpmforge-release*.rf.x86_64.rpm</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top" data-line="crayon-5560ad59881e6426435132-1">1</div><div class="crayon-num crayon-marked-num crayon-bottom crayon-striped-num" data-line="crayon-5560ad59881e6426435132-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top" id="crayon-5560ad59881e6426435132-1"><span class="crayon-e">wget </span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-o">/</span><span class="crayon-v">pkgs</span><span class="crayon-e">.repoforge</span><span class="crayon-e">.org</span><span class="crayon-o">/</span><span class="crayon-v">rpmforge</span><span class="crayon-o">-</span><span class="crayon-v">release</span><span class="crayon-o">/</span><span class="crayon-v">rpmforge</span><span class="crayon-o">-</span><span class="crayon-v">release</span><span class="crayon-o">-</span><span class="crayon-cn">0.5.3</span><span class="crayon-o">-</span><span class="crayon-cn">1.el6.rf.x86_64.rpm</span></div><div class="crayon-line crayon-marked-line crayon-bottom crayon-striped-line" id="crayon-5560ad59881e6426435132-2"><span class="crayon-v">rpm</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-e">ihv </span><span class="crayon-v">rpmforge</span><span class="crayon-o">-</span><span class="crayon-v">release</span><span class="crayon-o">*</span><span class="crayon-e">.rf</span><span class="crayon-e">.x86_64</span><span class="crayon-e">.rpm</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0009 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881e9885251822" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">sudo yum install htop</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad59881e9885251822-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad59881e9885251822-1"><span class="crayon-e">sudo </span><span class="crayon-e">yum </span><span class="crayon-e">install </span><span class="crayon-v">htop</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p><strong>Arch Linux</strong></p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881ed263429595" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">sudo pacman -S htop</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad59881ed263429595-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad59881ed263429595-1"><span class="crayon-e">sudo </span><span class="crayon-v">pacman</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">S</span><span class="crayon-h"> </span><span class="crayon-v">htop</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p><b><strong>Step 2 –Running</strong>&nbsp;Htop</b></p>
+<p>Like any other standard Linux program installed through a package manager you can run it on the command line by calling it with its name.</p>
+<p>So to run htop after installing in its most basic form type:</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881f1402023772" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">htop</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad59881f1402023772-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad59881f1402023772-1"><span class="crayon-v">htop</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<hr>
+<p><strong><b>Step 3–&nbsp;</b>Main&nbsp;Window</strong></p>
+<p>This previous command invokes the program and immediately shows you all running process in real-time currently working away on the system.</p>
+<div id="attachment_88" style="width: 1034px" class="wp-caption aligncenter"><a href="http://hoverdata.com/blog/wp-content/uploads/2015/03/Screenshot.png"><img class="wp-image-88 size-large" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/Screenshot-1024x563.png" alt="Htop" width="1024" height="563"></a><p class="wp-caption-text">Htop</p></div>
+<p>&nbsp;</p>
+<hr>
+<p><strong><b>Step 4 —&nbsp;</b>Top Panel</strong></p>
+<p>Another set of metrics included by htop can be seen at the very top of the display.</p>
+<p>They include:</p>
+<ul>
+<li>A representation of CPU usage and its current percentage.</li>
+<li>The total amount of system memory (RAM) being utilised currently out of the total available.</li>
+<li>What portion of “Swap” (Swp) is in use as well as the total potentially available if needed. This will only be full or filling if the&nbsp;physical memory itself&nbsp;is all allocated.</li>
+<li>Additionally on the far right the total number of tasks and threads are listed with the system’s “Load Average” and time spent running since boot.</li>
+</ul>
+<div id="attachment_86" style="width: 1266px" class="wp-caption aligncenter"><a href="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/f25d848b39bd49a6e13eac7dc08689af.png"><img class="wp-image-86 size-full" src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/f25d848b39bd49a6e13eac7dc08689af.png" alt="f25d848b39bd49a6e13eac7dc08689af" width="1256" height="80"></a><p class="wp-caption-text">Top Panel</p></div>
+<p>&nbsp;</p>
+<hr>
+<p><strong><b>Step 5 —&nbsp;</b>Bottom Panel</strong></p>
+<p>Likewise at the bottom of window the command keys are shown in numerical key order.</p>
+<ul>
+<li><strong>F1 Help</strong> — Opens a GUI manual with terminal related help topics.</li>
+<li><strong>F2 Setup</strong> — The bulk of htop customization is done here including meter/column adjustment, display layouts, and colour schemes. Worth exploring.</li>
+<li><strong>F3 Search</strong> — A quicker way of finding a process that is currently running, must exist to locate succesfully.</li>
+<li><strong>F4 Filter</strong> — Singles out the processes in relation to what you input.</li>
+<li><strong>F5 Tree</strong> — Allows you to see what relation each process has to one and other, including which is parent/child.</li>
+<li><strong>F6 SortBy</strong> — Brings up a quick access menu that lets you sort by different categories on the fly (most are abbreviated). Works on the column names at the top.</li>
+<li><strong>F7 Nice -</strong> — This option <strong>decreases</strong> the scheduling priority of the selected process.</li>
+<li><strong>F8 Nice +</strong> —&nbsp;This option <strong>increases</strong>&nbsp;the scheduling priority of the selected process.</li>
+<li><strong>F9 Kill</strong> — Perhaps the most useful of all these command keys. Will send a kill signal to the currently selected process. You may also specify the type of signal sent. Use with caution!</li>
+<li><strong>F10 Quit</strong> — Exit htop and go back to the command line, in turn killing the process.</li>
+</ul>
+<hr>
+<p><strong>Step 6 — Extra Shortcuts</strong></p>
+<p>These make playing around and using htop even more fluid but possess much of the same functionality as other shortcuts in the program.</p>
+<ul>
+<li><strong>l&nbsp;</strong>– As in List, shows a <em>lis</em>t of all the open files relevant to the highlighted process.</li>
+<li><strong>SHIFT + m</strong>&nbsp;— Applies a sort by memory use of all processes.</li>
+<li><strong>u</strong> — As in User, allows you to select a single <em>user</em> and see all processes belonging to and inherited by them individually.</li>
+<li><strong>SHIFT + p </strong>–<strong>&nbsp; </strong>Applies a sort by processor use on all processes.</li>
+<li><strong>Kill </strong>–<strong>&nbsp;</strong>Identical to <em>F9</em>&nbsp;in that it lets you kill the selected&nbsp;process.</li>
+<li><strong>/&nbsp;</strong>–&nbsp;Identical to <em>F3</em>&nbsp;as it triggers the same search field.</li>
+</ul>
+<hr>
+<p><strong>Step 7 — Command Line Parameters</strong></p>
+<p>There are options to be considered before running the program too!</p>
+<p>To delay the interval at which htop updates you can use this parameter where the value supplied is in tenths of seconds.</p>
+<p>This example is to update once every three seconds.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881f9136976175" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">htop -d 30</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad59881f9136976175-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad59881f9136976175-1"><span class="crayon-v">htop</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">d</span><span class="crayon-h"> </span><span class="crayon-cn">30</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>Don’t like the colour schemes? Or no support for the colouring on your terminal? This one disables colour.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad59881fd764140809" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">htop -C</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad59881fd764140809-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad59881fd764140809-1"><span class="crayon-v">htop</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">C</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>If you want to see only the processes and threads generated by a certain user straight off the bat.</p>
+<p>Use this next command, where “scarlz” is the username you want to filter on.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad5988201378218634" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">htop -u scarlz</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad5988201378218634-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad5988201378218634-1"><span class="crayon-v">htop</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">u</span><span class="crayon-h"> </span><span class="crayon-v">scarlz</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>Similarly it is possible to provide a column to sort on too. Providing you can remember the column names and values htop uses.</p>
+<p>Here’s a sort on the Memory usage column.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad5988205855496514" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">htop -s MEM%</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad5988205855496514-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad5988205855496514-1"><span class="crayon-v">htop</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-v">MEM</span><span class="crayon-o">%</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>Need to know what version you have installed? Here’s how.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad5988209298255079" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">htop -v</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad5988209298255079-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad5988209298255079-1"><span class="crayon-v">htop</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">v</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<hr>
+<p><strong>Conclusion</strong></p>
+<p>So overall this is how to use htop to its fullest. There are other intricacies you’ll get to grips with as you use the program, but hopefully you agree this is a good solid base to understand and work from when monitoring. If you suspect there are processing problems on a Linux OS htop is the place to start looking in resolving plus troubleshooting these issues.</p>
+<p>Feel free to ask any questions you may have in the comments, and we will try our best to answer them.</p>
+</div></div></div></div></div></body><iframe src="./Monitoring System Processes with Htop on Debian_Ubuntu, Fedora 6, CentOS 6, RHEL 6 & Arch Linux _ Hover Data – Blog_files/cmdline_frame.html" id="cVim-command-frame"></iframe><div id="cVim-status-bar" style="bottom: 0px;"></div></html>

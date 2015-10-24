@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://hoverdata.com/blog/shell-documentation-in-linux-unix-systems/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Shell Documentation In Linux &amp; Unix Systems | Hover Data – Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/reset.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/defaults.css" type="text/css" media="screen, projection">
+<!--[if lt IE 8]><link rel="stylesheet" href="http://hoverdata.com/blog/wp-content/themes/SeoSpot/lib/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+
+<link rel="stylesheet" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/style.css" type="text/css" media="screen, projection">
+
+<style type="text/css"></style><link rel="alternate" type="application/rss+xml" title="Hover Data - Blog » Shell Documentation In Linux &amp; Unix Systems Comments Feed" href="http://hoverdata.com/blog/shell-documentation-in-linux-unix-systems/feed/">
+<link rel="stylesheet" id="open-sans-css" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-css" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/monaco.css" type="text/css" media="all">
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/jquery.js"></script>
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.6.10","is_admin":"0","ajaxurl":"http:\/\/hoverdata.com\/blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/crayon.min.js"></script>
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/superfish.js"></script>
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/jquery.mobilemenu.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hoverdata.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hoverdata.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Installing &amp; Configuring Logwatch On Debian/Ubuntu, Fedora 6, CentOS 6, RHEL 6 &amp; Arch Linux" href="http://hoverdata.com/blog/installing-configuring-logwatch-on-debianubuntu-fedora-6-centos-6-rhel-6-arch-linux/">
+<link rel="next" title="Compiling &amp; Installing Linux Software From Source" href="http://hoverdata.com/blog/compiling-installing-linux-software-from-source/">
+
+<link rel="canonical" href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/Shell Documentation In Linux & Unix Systems _ Hover Data – Blog.html">
+<link rel="shortlink" href="http://hoverdata.com/blog/?p=207">
+<link rel="alternate" type="application/rss+xml" title="Hover Data - Blog RSS Feed" href="http://hoverdata.com/blog/feed/">
+<link rel="pingback" href="http://hoverdata.com/blog/xmlrpc.php">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+
+<style>#cVim-link-container, .cVim-link-hint, #cVim-command-bar, #cVim-command-bar-mode, #cVim-command-bar-input, #cVim-command-bar-search-results, .cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right, #cVim-hud, #cVim-status-bar {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-link-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  z-index: 2147483647;
+}
+
+.cVim-link-hint {
+  color: #302505 !important;
+  background-color: #ffd76e !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  font-size: 8pt !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: 1px solid #ad810c;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.25) !important;
+  position: absolute !important;
+}
+
+.cVim-link-hint_match {
+  color: #777;
+  text-transform: uppercase !important;
+}
+
+#cVim-command-bar {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  display: none;
+  box-sizing: content-box !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  left: 0 !important;
+  width: 100% !important;
+  height: 20px !important;
+}
+
+#cVim-command-bar-mode {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box !important;
+  padding-left: 2px !important;
+  height: 100% !important;
+  width: 10px !important;
+  padding-top: 2px !important;
+  color: #888 !important;
+}
+
+#cVim-command-bar-input {
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  height: 100% !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: calc(100% - 10px) !important;
+  position: absolute !important;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100% !important;
+  overflow: hidden;
+  z-index: 2147483647 !important;
+  left: 0;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  background-color: #1c1c1c;
+}
+
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right {
+  text-overflow: ellipsis;
+  padding: 1px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cVim-completion-item:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.cVim-completion-item {
+  width: 100%; left: 0;
+  color: #bcbcbc;
+}
+
+.cVim-completion-item .cVim-left {
+  color: #fff;
+  width: 37%;
+}
+
+.cVim-completion-item .cVim-right {
+  font-style: italic;
+  color: #888;
+  width: 57%;
+}
+
+#cVim-hud {
+  background-color: rgba(28,28,28,0.9);
+  position: fixed !important;
+  transition: right 0.2s ease-out;
+  z-index: 24724289;
+}
+
+#cVim-hud span {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #8f8f8f;
+  font-size: 10pt;
+}
+
+#cVim-frames-outline {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999999;
+  box-sizing: border-box;
+  border: 3px solid yellow;
+}
+</style></head>
+
+<body class="single single-post postid-207 single-format-standard logged-in admin-bar no-customize-support">
+
+<div id="container">
+
+    <div class="clearfix">
+    
+        <div id="top-social-profiles">
+                        <ul class="widget-container"><li class="social-profiles-widget">
+            <a href="http://twitter.com/" target="_blank"><img title="Twitter" alt="Twitter" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/twitter.png"></a><a href="http://facebook.com/" target="_blank"><img title="Facebook" alt="Facebook" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/facebook.png"></a><a href="https://plus.google.com/" target="_blank"><img title="Google Plus" alt="Google Plus" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/gplus.png"></a><a href="http://www.linkedin.com/" target="_blank"><img title="LinkedIn" alt="LinkedIn" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/linkedin.png"></a><a href="http://apadana-rayaneh.com/blog/?feed=rss2" target="_blank"><img title="RSS Feed" alt="RSS Feed" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/rss.png"></a><a href="mailto:your@email.com" target="_blank"><img title="Email" alt="Email" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/email.png"></a>            </li></ul>
+                    </div>
+        
+    </div>
+    
+    <div id="header">
+    
+        <div class="logo">
+         
+            <a href="http://hoverdata.com/blog"><img src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/logo1.jpg" alt="Hover Data – Blog" title="Hover Data – Blog"></a>
+         
+        </div><!-- .logo -->
+
+        <div class="header-right">
+            			        <div class="menu-primary-container">
+			<ul class="menus menu-primary sub-menu sf-js-enabled">
+                <li><a href="http://hoverdata.com/blog">Home</a></li>
+				<li class="page_item page-item-46"><a href="http://hoverdata.com/blog/bridgeclient/">Configure Bridge Client for Virtualization</a></li>
+<li class="page_item page-item-57"><a href="http://hoverdata.com/blog/ipalias/">Configure IPAlias (Assign Additional IP Address to Server)</a></li>
+			</ul>
+		</div><div class="menu-primary-responsive-container"><select class="menu-primary-responsive"><option value="#">Menu</option><option value="http://hoverdata.com/blog">–&nbsp;Home</option><option value="http://hoverdata.com/blog/bridgeclient/">–&nbsp;Configure Bridge Client for Virtualization</option><option value="http://hoverdata.com/blog/ipalias/">–&nbsp;Configure IPAlias (Assign Additional IP Address to Server)</option></select></div>
+                      <!--.primary menu--> 	
+                </div><!-- .header-right -->
+        
+    </div><!-- #header -->
+    
+            <div class="clearfix">
+            			        <div class="menu-secondary-container">
+			<ul class="menus menu-secondary sub-menu sf-js-enabled">
+					<li class="cat-item cat-item-3"><a href="http://hoverdata.com/blog/category/linux/" title="Everything should a user know about Linux would find here.">Linux</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://hoverdata.com/blog/category/officials/" title="We will publish our official news and promo here.">Officials</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://hoverdata.com/blog/category/seo/">Seo</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://hoverdata.com/blog/category/server-management/">Server Management</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://hoverdata.com/blog/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://hoverdata.com/blog/category/virtualization/" title="every tutorial and article about virtualization goes here.">Virtualization</a>
+</li>
+			</ul>
+		</div><div class="menu-secondary-responsive-container"><select class="menu-secondary-responsive"><option value="#">Navigation</option><option value="http://hoverdata.com/blog/category/linux/">–&nbsp;Linux</option><option value="http://hoverdata.com/blog/category/officials/">–&nbsp;Officials</option><option value="http://hoverdata.com/blog/category/seo/">–&nbsp;Seo</option><option value="http://hoverdata.com/blog/category/server-management/">–&nbsp;Server Management</option><option value="http://hoverdata.com/blog/category/uncategorized/">–&nbsp;Uncategorized</option><option value="http://hoverdata.com/blog/category/virtualization/">–&nbsp;Virtualization</option></select></div>
+                      <!--.secondary menu--> 	
+                </div>
+    
+    <div id="main">
+    
+            
+        <div id="content">
+            
+                    
+            
+    <div class="post-207 post type-post status-publish format-standard hentry category-linux category-server-management tag-documentation tag-shell post-single clearfix" id="post-207">
+        
+        <div class="postmeta-primary">
+    
+            <span class="meta_date">April 2, 2015</span>
+           &nbsp; <span class="meta_categories"><a href="http://hoverdata.com/blog/category/linux/" rel="category tag">Linux</a>, <a href="http://hoverdata.com/blog/category/server-management/" rel="category tag">Server Management</a></span>
+    
+                 &nbsp; <span class="meta_comments"><a href="http://hoverdata.com/blog/shell-documentation-in-linux-unix-systems/#respond" title="Comment on Shell Documentation In Linux &amp; Unix Systems">No comments</a></span> &nbsp; <span class="meta_edit"><a class="post-edit-link" href="http://hoverdata.com/blog/wp-admin/post.php?post=207&action=edit">Edit This</a></span> 
+        </div>
+        
+        <h2 class="title">Shell Documentation In Linux &amp; Unix Systems</h2>
+
+        <div class="entry clearfix">
+            
+                        
+            <p><a href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/unnamed-1.png"><img class="aligncenter size-full wp-image-224" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/unnamed-1.png" alt="unnamed (1)" width="300" height="300"></a></p>
+<p><strong>Prerequisites</strong></p>
+<p>All you require for this guide in particular is a VPS or server running a&nbsp;Linux operating system.&nbsp;If you are in need of hosting services&nbsp;<a href="http://hoverdata.com/" target="_blank">Hoverdata</a>&nbsp;provide afforable payment plans for shared hosting, VPS hosting, or dedicated server hosting.</p>
+<p><strong>Introduction</strong></p>
+<p>Linux system administrators spend much time and effort learning commands of all kinds to work in and around the shell. One group of resources that play a sometimes understated role in this learning are the shell manual pages. All accessible through the same means as the commands they document.</p>
+<p><span id="more-207"></span></p>
+<p><strong>1 — man</strong></p>
+<p>Usually the first port of call when querying a command and its capabilities. It’s a great place to start if you’re unsure as to what a program’s purpose even is or if you need it to achieve something specific (parameters).</p>
+<p>On the most simplest of levels typing “man” followed by a space and the name of a command will bring up the manual page in question for said command.</p>
+<p>Typing “man ping” like in our example below shows the purpose of the command, shorthand parameters, more parameters, sometimes prefixes, and anything of detailed importance you may need to know.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde27174125150" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">man ping</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde27174125150-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde27174125150-1"><span class="crayon-r">man</span><span class="crayon-h"> </span><span class="crayon-v">ping</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>To quit the page and return to the command line press&nbsp;<strong>q</strong></p>
+<hr>
+<p><strong>2 — man (/)</strong></p>
+<p>Whilst browsing through a man page you can press slash and type a string you want to search for. Confirm the entry with <strong>ENTER</strong>&nbsp;to highlight occurrences of the string throughout the document.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde31895287820" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">/verbose</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde31895287820-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde31895287820-1"><span class="crayon-o">/</span><span class="crayon-v">verbose</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>Pressing <strong>n</strong>&nbsp;cycles through the selections on screen.</p>
+<hr>
+<p><strong>3 —&nbsp;man -k</strong></p>
+<p>Using the -k parameter with man works like a regular expression search in that whatever you pass with this is matched against manual page names and their description.</p>
+<p>If we search for man pages containing grep like this the next example we get every variation of grep that has a man page available.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde38237281765" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">man -k grep</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde38237281765-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde38237281765-1"><span class="crayon-r">man</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">k</span><span class="crayon-h"> </span><span class="crayon-r">grep</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>This option works much in the same way as the&nbsp;<em>apropos&nbsp;</em>command.</p>
+<hr>
+<p><strong>4 — whatis</strong></p>
+<p>Breaking away from man for a while we see there are other commands at your disposal.</p>
+<p>This one is self explanatory in name and much more concise in nature.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde3e436571395" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">whatis apropos</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde3e436571395-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde3e436571395-1"><span class="crayon-e">whatis </span><span class="crayon-v">apropos</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>The above command (whatis) explains usually in only one line the precise purpose of whatever command you provide.</p>
+<p>Much more effective for those who don’t have time to read in depth man pages.</p>
+<hr>
+<p><strong>5 — whereis</strong></p>
+<p>Ever wondered where some of the command you use are stored? If so this one might be of use to you.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde44081283837" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">whereis echo</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde44081283837-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde44081283837-1"><span class="crayon-e">whereis </span><span class="crayon-r">echo</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>If you know the file system well enough you’ll probably know most programs are stored in /bin/ .</p>
+<p>The whereis program is by no means limited to this directory though. It works on every “program” not just inbuilt shell ones.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde4a803467748" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">whereis vim</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde4a803467748-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde4a803467748-1"><span class="crayon-e">whereis </span><span class="crayon-r">vim</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>No matter where they reside in the file system.</p>
+<hr>
+<p><strong>6 —&nbsp;info</strong></p>
+<p>This one works similarly to the original man command we showed.&nbsp;The content provided is different depending on the page you request.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde50010379407" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">info ls</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde50010379407-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde50010379407-1"><span class="crayon-e">info </span><span class="crayon-r">ls</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>The list command (ls) info page to pick one of many has an alternative format to its man counterpart, and all provided information is laid out differently with new content on how to use list.</p>
+<p>Not all commands have alternative wording and layout however.</p>
+<hr>
+<p><strong>7 — man section file</strong></p>
+<p>Back to the man command that we know and love as it has more utility to provide.</p>
+<p>As you become more familiar with certain pages you may want to open them at the numbered sections within.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde56330677527" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">man 5 passwd</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde56330677527-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde56330677527-1"><span class="crayon-r">man</span><span class="crayon-h"> </span><span class="crayon-cn">5</span><span class="crayon-h"> </span><span class="crayon-v">passwd</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>The only caveat to remember with this is you have to know the section and are sure that it exists inside a page to use it.</p>
+<div id="attachment_216" style="width: 735px" class="wp-caption aligncenter"><a href="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/bab6b466c0b7c386d8198a1892ee78cf.png"><img class="wp-image-216 size-full" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/bab6b466c0b7c386d8198a1892ee78cf.png" alt="bab6b466c0b7c386d8198a1892ee78cf" width="725" height="183"></a><p class="wp-caption-text">Man Section Numbers</p></div>
+<p>&nbsp;</p>
+<p>Many command man pages do not have designated sections like the ones above.</p>
+<p>Basically if your page in mind adheres to any of these sections then you can make use of this “section file” command.</p>
+<hr>
+<p><strong>8 — man configfile</strong></p>
+<p>Interestingly many of the various configuration files you find attached to programs, scripts, binaries, etc. come complete with their own manual pages.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde5d437099057" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">man hosts.allow</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde5d437099057-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde5d437099057-1"><span class="crayon-r">man</span><span class="crayon-h"> </span><span class="crayon-v">hosts</span><span class="crayon-e">.allow</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>Try this out on configuration files, it works mostly on internal system config files.</p>
+<hr>
+<p><strong>9 — man deamon</strong></p>
+<p>There’s still more to come from man.</p>
+<p>The background processes more aptly named daemons on your OS can be queried for man pages to confirm or determine their purpose.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde63807106235" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">man murmud</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde63807106235-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde63807106235-1"><span class="crayon-r">man</span><span class="crayon-h"> </span><span class="crayon-v">murmud</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>So you can check what service these are actually upholding&nbsp;if you’re unsure.</p>
+<hr>
+<p><strong>10 —&nbsp; man man</strong></p>
+<p>To end this post I’ll make the point of saying it’s worth checking out once or twice the manual page for man itself.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad92bde69244453108" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -19px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">man man</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad92bde69244453108-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad92bde69244453108-1"><span class="crayon-r">man</span><span class="crayon-h"> </span><span class="crayon-r">man</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>In here there’s the answer to any further inquiries concerning the use of man including as per the norm more parameters and what they’re defined for.</p>
+<hr>
+<p><strong>Conclusion</strong></p>
+<p>These diverse commands especially the variations of man will serve you well when administrating and learning about the Linux command line. Do not forget also that piping, redirecting, replacing and more of the universal shell mechanics work by and large with these tools too. So use this to your advantage.</p>
+<p>We look forward to any questions in the comments you may have.</p>
+<p>Thanks.</p>
+    
+        </div>
+        
+        <div class="postmeta-secondary"><span class="meta_tags"><a href="http://hoverdata.com/blog/tag/documentation/" rel="tag">Documentation</a>, <a href="http://hoverdata.com/blog/tag/shell/" rel="tag">Shell</a></span></div> 
+        
+    
+    </div><!-- Post ID 207 -->
+    
+    
+       
+        
+    								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://hoverdata.com/blog/shell-documentation-in-linux-unix-systems/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://hoverdata.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="logged-in-as">Logged in as <a href="http://hoverdata.com/blog/wp-admin/profile.php">Scarlz</a>. <a href="http://hoverdata.com/blog/wp-login.php?action=logout&redirect_to=http%3A%2F%2Fhoverdata.com%2Fblog%2Fshell-documentation-in-linux-unix-systems%2F&_wpnonce=325d8fefca" title="Log out of this account">Log out?</a></p>																			<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true"></textarea></p>						<p class="form-allowed-tags" id="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code class="" title="" data-url=""&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; &lt;pre class="" title="" data-url=""&gt; &lt;span class="" title="" data-url=""&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="207" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+											</form>
+							</div><!-- #respond -->
+			            
+                    
+        </div><!-- #content -->
+    
+        
+<div id="sidebar-primary">
+
+            <ul class="widget-container"><li class="comments-widget">
+         <h3 class="widgettitle">Recent Comments</h3>             <ul>
+                                        <li class="clearfix">
+                                                                <a href="http://hoverdata.com/blog/change-root-password-in-linux/#comment-2" title="Change Root Password in Linux"><img alt="" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/c2439842c3f0993664b12cd06c91a47d" class="avatar comments-widget-avatar alignleft avatar-32 photo" height="32" width="32"></a> 
+                                    <div class="comments-widget-entry">
+                                                                                <a href="http://hoverdata.com/blog/change-root-password-in-linux/#comment-2" class="comments-widget-author">Rebert Sanchez</a>: Hello
+
+It was a really helpful tutorial keep goi 
+                                            <a href="http://hoverdata.com/blog/change-root-password-in-linux/#comment-2" class="comments-widget-more">»</a>                                    </div>                        </li>
+                                </ul>
+        </li></ul>
+             <ul class="widget-container"><li class="infobox-widget">
+            <h3 class="widgettitle">What is purpose of the blog?</h3>            <ul>
+        	   <li class="infobox-widget-description">
+                We are going to update the blog with most stuff which is the most related to VPS and Dedicated Server and How to manage it. We recently run this blog as a knowledge-base therefore we have not covered most tutorials,Therefore we glad to receive what you need to add the blog.
+               </li>
+            </ul>
+        </li></ul>
+            
+</div><!-- #sidebar-primary -->        
+                
+    </div><!-- #main -->
+    
+    
+    <div id="footer-widgets" class="clearfix">
+                <div class="footer-widget-box">
+                    </div>
+        
+        <div class="footer-widget-box">
+                    </div>
+        
+        <div class="footer-widget-box footer-widget-box-last">
+                    </div>
+        
+    </div>
+
+    <div id="footer">
+    
+        <div id="copyrights">
+             © 2015  <a href="http://hoverdata.com/blog/">Hover Data – Blog</a> 
+        </div>
+        
+                
+        <div id="credits">Powered by <a href="http://wordpress.org/"><strong>WordPress</strong></a>  </div><!-- #credits -->
+        
+    </div><!-- #footer -->
+    
+</div><!-- #container -->
+
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/admin-bar.min.js"></script>
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/hoverIntent.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.noConflict();
+jQuery(function(){ 
+	jQuery('ul.menu-primary').superfish({ 
+	animation: {opacity:'show'},
+autoArrows:  true,
+                dropShadows: false, 
+                speed: 200,
+                delay: 800
+                });
+            });
+jQuery('.menu-primary-container').mobileMenu({
+                defaultText: 'Menu',
+                className: 'menu-primary-responsive',
+                containerClass: 'menu-primary-responsive-container',
+                subMenuDash: '&ndash;'
+            });
+
+jQuery(function(){ 
+	jQuery('ul.menu-secondary').superfish({ 
+	animation: {opacity:'show'},
+autoArrows:  true,
+                dropShadows: false, 
+                speed: 200,
+                delay: 800
+                });
+            });
+jQuery('.menu-secondary-container').mobileMenu({
+                defaultText: 'Navigation',
+                className: 'menu-secondary-responsive',
+                containerClass: 'menu-secondary-responsive-container',
+                subMenuDash: '&ndash;'
+            });
+
+/* ]]> */
+</script>
+
+</body><iframe src="./Shell Documentation In Linux & Unix Systems _ Hover Data – Blog_files/cmdline_frame.html" id="cVim-command-frame"></iframe><div id="cVim-status-bar" style="bottom: 0px;"></div></html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://hoverdata.com/blog/installing-using-iptraf-on-ubuntudebian/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Installing &amp; Using IPTraf on Ubuntu/Debian | Hover Data – Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/reset.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/defaults.css" type="text/css" media="screen, projection">
+<!--[if lt IE 8]><link rel="stylesheet" href="http://hoverdata.com/blog/wp-content/themes/SeoSpot/lib/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+
+<link rel="stylesheet" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/style.css" type="text/css" media="screen, projection">
+
+<style type="text/css"></style><link rel="alternate" type="application/rss+xml" title="Hover Data - Blog » Installing &amp; Using IPTraf on Ubuntu/Debian Comments Feed" href="http://hoverdata.com/blog/installing-using-iptraf-on-ubuntudebian/feed/">
+<link rel="stylesheet" id="open-sans-css" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-css" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/monaco.css" type="text/css" media="all">
+<script type="text/javascript" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/jquery.js"></script>
+<script type="text/javascript" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.6.10","is_admin":"0","ajaxurl":"http:\/\/hoverdata.com\/blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/crayon.min.js"></script>
+<script type="text/javascript" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/superfish.js"></script>
+<script type="text/javascript" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/jquery.mobilemenu.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hoverdata.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hoverdata.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Adding &amp; Creating Swap Files in Ubuntu/Debian" href="http://hoverdata.com/blog/adding-creating-swap-files-in-ubuntudebian/">
+<link rel="next" title="Creating &amp; Copying SSH Keys For Access With Linux Systems" href="http://hoverdata.com/blog/creating-copying-ssh-keys-for-access-with-linux-systems/">
+
+<link rel="canonical" href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog.html">
+<link rel="shortlink" href="http://hoverdata.com/blog/?p=128">
+<link rel="alternate" type="application/rss+xml" title="Hover Data - Blog RSS Feed" href="http://hoverdata.com/blog/feed/">
+<link rel="pingback" href="http://hoverdata.com/blog/xmlrpc.php">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+
+<style>#cVim-link-container, .cVim-link-hint, #cVim-command-bar, #cVim-command-bar-mode, #cVim-command-bar-input, #cVim-command-bar-search-results, .cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right, #cVim-hud, #cVim-status-bar {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-link-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  z-index: 2147483647;
+}
+
+.cVim-link-hint {
+  color: #302505 !important;
+  background-color: #ffd76e !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  font-size: 8pt !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: 1px solid #ad810c;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.25) !important;
+  position: absolute !important;
+}
+
+.cVim-link-hint_match {
+  color: #777;
+  text-transform: uppercase !important;
+}
+
+#cVim-command-bar {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  display: none;
+  box-sizing: content-box !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  left: 0 !important;
+  width: 100% !important;
+  height: 20px !important;
+}
+
+#cVim-command-bar-mode {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box !important;
+  padding-left: 2px !important;
+  height: 100% !important;
+  width: 10px !important;
+  padding-top: 2px !important;
+  color: #888 !important;
+}
+
+#cVim-command-bar-input {
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  height: 100% !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: calc(100% - 10px) !important;
+  position: absolute !important;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100% !important;
+  overflow: hidden;
+  z-index: 2147483647 !important;
+  left: 0;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  background-color: #1c1c1c;
+}
+
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right {
+  text-overflow: ellipsis;
+  padding: 1px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cVim-completion-item:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.cVim-completion-item {
+  width: 100%; left: 0;
+  color: #bcbcbc;
+}
+
+.cVim-completion-item .cVim-left {
+  color: #fff;
+  width: 37%;
+}
+
+.cVim-completion-item .cVim-right {
+  font-style: italic;
+  color: #888;
+  width: 57%;
+}
+
+#cVim-hud {
+  background-color: rgba(28,28,28,0.9);
+  position: fixed !important;
+  transition: right 0.2s ease-out;
+  z-index: 24724289;
+}
+
+#cVim-hud span {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #8f8f8f;
+  font-size: 10pt;
+}
+
+#cVim-frames-outline {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999999;
+  box-sizing: border-box;
+  border: 3px solid yellow;
+}
+</style></head>
+
+<body class="single single-post postid-128 single-format-standard logged-in admin-bar no-customize-support">
+
+<div id="container">
+
+    <div class="clearfix">
+    
+        <div id="top-social-profiles">
+                        <ul class="widget-container"><li class="social-profiles-widget">
+            <a href="http://twitter.com/" target="_blank"><img title="Twitter" alt="Twitter" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/twitter.png"></a><a href="http://facebook.com/" target="_blank"><img title="Facebook" alt="Facebook" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/facebook.png"></a><a href="https://plus.google.com/" target="_blank"><img title="Google Plus" alt="Google Plus" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/gplus.png"></a><a href="http://www.linkedin.com/" target="_blank"><img title="LinkedIn" alt="LinkedIn" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/linkedin.png"></a><a href="http://apadana-rayaneh.com/blog/?feed=rss2" target="_blank"><img title="RSS Feed" alt="RSS Feed" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/rss.png"></a><a href="mailto:your@email.com" target="_blank"><img title="Email" alt="Email" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/email.png"></a>            </li></ul>
+                    </div>
+        
+    </div>
+    
+    <div id="header">
+    
+        <div class="logo">
+         
+            <a href="http://hoverdata.com/blog"><img src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/logo1.jpg" alt="Hover Data – Blog" title="Hover Data – Blog"></a>
+         
+        </div><!-- .logo -->
+
+        <div class="header-right">
+            			        <div class="menu-primary-container">
+			<ul class="menus menu-primary">
+                <li><a href="http://hoverdata.com/blog">Home</a></li>
+				<li class="page_item page-item-46"><a href="http://hoverdata.com/blog/bridgeclient/">Configure Bridge Client for Virtualization</a></li>
+<li class="page_item page-item-57"><a href="http://hoverdata.com/blog/ipalias/">Configure IPAlias (Assign Additional IP Address to Server)</a></li>
+			</ul>
+		</div>
+                      <!--.primary menu--> 	
+                </div><!-- .header-right -->
+        
+    </div><!-- #header -->
+    
+            <div class="clearfix">
+            			        <div class="menu-secondary-container">
+			<ul class="menus menu-secondary">
+					<li class="cat-item cat-item-3"><a href="http://hoverdata.com/blog/category/linux/" title="Everything should a user know about Linux would find here.">Linux</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://hoverdata.com/blog/category/officials/" title="We will publish our official news and promo here.">Officials</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://hoverdata.com/blog/category/seo/">Seo</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://hoverdata.com/blog/category/server-management/">Server Management</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://hoverdata.com/blog/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://hoverdata.com/blog/category/virtualization/" title="every tutorial and article about virtualization goes here.">Virtualization</a>
+</li>
+			</ul>
+		</div>
+                      <!--.secondary menu--> 	
+                </div>
+    
+    <div id="main">
+    
+            
+        <div id="content">
+            
+                    
+            
+    <div class="post-128 post type-post status-publish format-standard hentry category-linux category-server-management tag-debian tag-monitoring tag-ubuntu post-single clearfix" id="post-128">
+        
+        <div class="postmeta-primary">
+    
+            <span class="meta_date">March 27, 2015</span>
+           &nbsp; <span class="meta_categories"><a href="http://hoverdata.com/blog/category/linux/" rel="category tag">Linux</a>, <a href="http://hoverdata.com/blog/category/server-management/" rel="category tag">Server Management</a></span>
+    
+                 &nbsp; <span class="meta_comments"><a href="http://hoverdata.com/blog/installing-using-iptraf-on-ubuntudebian/#respond" title="Comment on Installing &amp; Using IPTraf on Ubuntu/Debian">No comments</a></span> &nbsp; <span class="meta_edit"><a class="post-edit-link" href="http://hoverdata.com/blog/wp-admin/post.php?post=128&action=edit">Edit This</a></span> 
+        </div>
+        
+        <h2 class="title">Installing &amp; Using IPTraf on Ubuntu/Debian</h2>
+
+        <div class="entry clearfix">
+            
+                        
+            <p><a href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/ip11.jpg"><img class="aligncenter  wp-image-159" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/ip11.jpg" alt="ip1" width="352" height="264"></a></p>
+<p><strong>Prerequisites</strong></p>
+<p>This guide is in the context of&nbsp;using a Debian or Ubuntu derived Linux distribution, and is intended for the type of network traffic seen on a VPS or dedicated server. You can purchase VPS server hosting from a company like&nbsp;<a href="http://hoverdata.com/" target="_blank">Hoverdata</a>, who specialise in providing affordable server hosting plans with reliable up-times.</p>
+<p><strong>Introduction</strong></p>
+<p>IPTraf is a tried and tested CLI tool for system administrators to monitor low level network connections on their systems. The program is relatively easy to use whilst being simple to navigate, and can be tweaked to the user’s preferences in terms of how the incoming data is formatted. It works by analyzing (or <em>sniffing</em>) the incoming packets on a network hardware device. With the purpose of relaying them back to the administrator to diagnose or problem solve any apparent network issues. The software itself is stored in the Debian/Ubuntu system repositories so is conveniently easy to download and install with the <em>apt-get</em> package manager.</p>
+<p><span id="more-128"></span></p>
+<p><strong>Step 1 — Installing IPtraf</strong></p>
+<p>Here’s the command to retrieve it.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad6fbf7a4190952918" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">sudo apt-get install iptraf</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad6fbf7a4190952918-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad6fbf7a4190952918-1"><span class="crayon-e">sudo </span><span class="crayon-v">apt</span><span class="crayon-o">-</span><span class="crayon-r">get</span><span class="crayon-h"> </span><span class="crayon-e">install </span><span class="crayon-v">iptraf</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p>Any dependencies the program relies on are obtained as usual inclusively&nbsp;with this command.</p>
+<hr>
+<p><strong>Step 2 —&nbsp;Running &amp; Main Menu&nbsp;</strong></p>
+<p>When running IPtraf make sure it has <strong>root/sudo&nbsp;</strong>access or privileges as without this it will be unrecognised by the command line.</p><!-- Crayon Syntax Highlighter v2.6.10 -->
+
+		<div id="crayon-5560ad6fbf7ad555548907" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">sudo iptraf</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num crayon-marked-num crayon-top crayon-bottom" data-line="crayon-5560ad6fbf7ad555548907-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line crayon-marked-line crayon-top crayon-bottom" id="crayon-5560ad6fbf7ad555548907-1"><span class="crayon-e">sudo </span><span class="crayon-v">iptraf</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>Here after running it you see some details on the licensing of the software as well as the version number.</p>
+<p>As it informs press any key to continue.&nbsp;Upon which you are taken to the main menu where you can access each section of the program.</p>
+<div id="attachment_129" style="width: 290px" class="wp-caption alignleft"><a href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/cedecabbe1ad6c9aebb26661bff8fb6e.png"><img class="wp-image-129 size-full" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/cedecabbe1ad6c9aebb26661bff8fb6e.png" alt="cedecabbe1ad6c9aebb26661bff8fb6e" width="280" height="220"></a><p class="wp-caption-text">Main Menu</p></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr>
+<p><strong>Step 3 — IP Traffic Monitor</strong></p>
+<p>In this option TCP IP address connections can be seen on the far left of the screen in the format of<i>&nbsp;source host: port&nbsp;</i>appearing as they occur in real-time.&nbsp;The layouts you’ll encounter are often separated into two main sections within IPTraf in this manner. On the right of the screen in several columns you can see the corresponding packets generated, what sizein bytes they are amounting to, with which TCP flags are attached. Lastly the network interface ID shows which devices the traffic is being received upon.</p>
+<div id="attachment_131" style="width: 742px" class="wp-caption alignleft"><a href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/86387b5e7217450c4f3b219354e0ba10.png"><img class="wp-image-131 size-full" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/86387b5e7217450c4f3b219354e0ba10.png" alt="86387b5e7217450c4f3b219354e0ba10" width="732" height="219"></a><p class="wp-caption-text">Top Panel</p></div>
+<p>&nbsp;</p>
+<p>The lower section and panel shows UDP traffic instead. Providing some of the bare bones data generated from these packet types. Then at the very bottom of the screen are values for the number of packets captured on&nbsp;<strong>all interfaces s</strong>o far, with the TCP flow rate when it can be sourced.&nbsp;&nbsp;You can&nbsp;<strong>TAB</strong> between each of these two main panels to set either of the two as “active”.</p>
+<blockquote><p>Note that pressing ‘<strong>q</strong>‘ in any of these menu sections returns you back to the main menu.</p></blockquote>
+<hr>
+<p><strong>Step 4 — General Interface Statistics</strong></p>
+<p>The second option accessed via the main menu is a bit more generic and contains a lot less specific information. It is useful to confirm that overall the network interface in question is sending and receiving traffic correctly as it should be.</p>
+<div id="attachment_132" style="width: 1111px" class="wp-caption aligncenter"><a href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/1f128eddf40db16ed7b6b18e5c085522.png"><img class="wp-image-132 size-full" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/1f128eddf40db16ed7b6b18e5c085522.png" alt="1f128eddf40db16ed7b6b18e5c085522" width="1101" height="90"></a><p class="wp-caption-text">General Statistics</p></div>
+<p>Data here that can be ascertained are the total and amount of packets running across each device, whether any “Bad” or “NonIP” based transactions are taking place, and the overall activity of each device in kilobytes.</p>
+<hr>
+<p><strong>Step 5 — Detailed Interfaced Statistics</strong></p>
+<p>This choice is arguably more useful than the previous one from the menu as we get a much larger quantity of data presented.</p>
+<div id="attachment_134" style="width: 676px" class="wp-caption aligncenter"><a href="http://hoverdata.com/blog/wp-content/uploads/2015/03/92db6a2772feedf0063861fcdb00f243.png"><img class="wp-image-134 size-full" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/92db6a2772feedf0063861fcdb00f243-e1427306810481.png" alt="92db6a2772feedf0063861fcdb00f243" width="666" height="429"></a><p class="wp-caption-text">Detailed Statistics</p></div>
+<p>Each column is self explanatory simply remember that the values shown are only from when you opened this section of the menu and not from a set point in a log file or prior to this instance. It is like the other sections you encounter in the program collated in real-time though and useful for determining states of network traffic and devices here and now in the present.</p>
+<hr>
+<p><strong>Step 6 —&nbsp;Statistical Breakdowns</strong></p>
+<p>This one allows &nbsp;a choice of seeing incoming data by packet size or TCP/UDP port. Including the numbers relevant to each port. In my example screenshot I’ve chosen the latter option.</p>
+<div id="attachment_143" style="width: 1161px" class="wp-caption aligncenter"><a href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/f71ad2c2be27fc94620e7ee6b1bb5100.png"><img class="wp-image-143 size-full" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/f71ad2c2be27fc94620e7ee6b1bb5100.png" alt="f71ad2c2be27fc94620e7ee6b1bb5100" width="1151" height="92"></a><p class="wp-caption-text">TCP/UDP</p></div>
+<p>As you’ll see the metrics are the same as previous windows (mostly) but you have the new details on the far left that you chose.</p>
+<p>Do note the very bottom of the screen where another strip of information around data rates is provided.</p>
+<hr>
+<p><strong>Step 7 — Configure</strong></p>
+<p>Here you can set things up to act however you personally desire.</p>
+<p>The most notable options perhaps to enable from my point of view are&nbsp;“Reverse DNS lookups” &amp; “Service names”.&nbsp;This first one allows you to see the IP addresses in various parts of the program as domain names instead of octets. When it’s possible to resolve them. Then the second one shows the actual service used on ports (“statistical breakdown”) instead of the port numbers themselves.</p>
+<div id="attachment_144" style="width: 290px" class="wp-caption aligncenter"><a href="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/848a7c3f7300c4c0c662d0ab9df9b48a.png"><img class="wp-image-144 size-full" src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/848a7c3f7300c4c0c662d0ab9df9b48a.png" alt="848a7c3f7300c4c0c662d0ab9df9b48a" width="280" height="235"></a><p class="wp-caption-text">Configure</p></div>
+<hr>
+<p><strong>Conclusion</strong></p>
+<p>I have purposefully missed out the two most user specific sections available on the main menu for you to explore yourself. These are also some would say not the most useful of areas&nbsp;in the program, depending upon your intention and what exactly you want to use the program for. If you are needing to filter out several different types of traffic on incoming IP addresses, then you may actually find use here (filters). As said explore and play around with the two unexplained sections to see if they are indeed useful to yourself.</p>
+<p>We hope you found this post interesting and agree that IPTraf is a handy basic monitoring utility to bring out when nothing fancy is needed and you want some ease of use.</p>
+</div></div></div></div></div></body><iframe src="./Installing & Using IPTraf on Ubuntu_Debian _ Hover Data – Blog_files/cmdline_frame.html" id="cVim-command-frame"></iframe><div id="cVim-status-bar" style="bottom: 0px;"></div></html>

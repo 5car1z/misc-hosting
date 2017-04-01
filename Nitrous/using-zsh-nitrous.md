@@ -27,8 +27,6 @@ Create a new project from within your Nitrous workstation to get started.
 
 This is found on the default “Projects” tab near the center of the screen - indicated by a `+` symbol inside of a square. Click it to be taken to the “New Project” creation page. 
 
-![New Project Image](http://nitrous-community.s3.amazonaws.com/images/new-dashboard.png)
-
 For this article you can use just about any of the Nitrous project templates, but choosing the "Ubuntu" template here is a suitable choice. 
 
 ![Ubuntu Project Image](http://i.imgur.com/nhgufqO.png)

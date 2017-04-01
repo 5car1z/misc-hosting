@@ -48,8 +48,6 @@ Begin by creating a new container from within a pre-existing workspace. This is 
 
 The template you'll want to use is listed as "Node.js".
 
-![Node.js Container Image](https://nitrous-community.s3.amazonaws.com/images/nodejs-template.png)
-
 By using this container template we have Node Package Manager and several other useful setups already in place.
 
 <h2 id=”2”> 2 - Installing Bower</h2>

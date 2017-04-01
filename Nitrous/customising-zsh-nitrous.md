@@ -4,7 +4,7 @@
 <h3>Table of Contents</h3>
 <ul>
     <li><a href=”#Prerequisites”> Prerequisites </a></li>
-    <li><a href=”#introduction”> Introduction</a></li>/
+    <li><a href=”#introduction”> Introduction</a></li>
     <li><a href=”#1”> 1 - Create a Nitrous Project</a></li>
     <li><a href=”#2”> 2 - .zshrc</a></li>
     <li><a href=”#3”> 3 - Prompt Configuration</a></li>

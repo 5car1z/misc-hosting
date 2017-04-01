@@ -26,8 +26,6 @@ Z Shell is the default shell of choice for the projects on Nitrous. While the sh
 <h2 id=”1”> 1 - Create a Nitrous Project</h2>
 Let’s start by creating a new project from within your Nitrous workstation. This is found on the default “Projects” tab near the center of the screen - indicated by a `+` symbol inside of a square. Click it to be taken to the “New Project” creation page. 
 
-![New Project Dashboard](http://nitrous-community.s3.amazonaws.com/images/new-dashboard.png)
-
 For this article you can use just about any of the Nitrous project templates, but choosing the "Ubuntu" template is a suitable choice here. 
 
 ![Ubuntu Project Image](http://i.imgur.com/nhgufqO.png)
